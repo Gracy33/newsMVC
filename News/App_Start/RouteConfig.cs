@@ -16,7 +16,14 @@ namespace News
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[]{"News.Controllers"}
+            );
+
+            routes.MapRoute(
+                name: "details",
+                url: "{controller}/{action}/{idNews}/{idAuthor}",
+                defaults: new { controller = "Home", action = "Details", id = UrlParameter.Optional }
             );
         }
     }

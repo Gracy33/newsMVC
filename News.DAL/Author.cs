@@ -13,7 +13,7 @@ namespace News.DAL
         private string _authorName;
         private string _authorFirstName;
         private string _authorPicture;
-        public List<News> _autNews;
+        public List<InfoNews> _autNews;
         #endregion
 
         #region Properties
@@ -41,7 +41,7 @@ namespace News.DAL
             set { _authorPicture = value; }
         }
 
-        public List<News> AutNews
+        public List<InfoNews> AutNews
         {
             get
             {
@@ -62,9 +62,9 @@ namespace News.DAL
             return aut;
         }
 
-        private List<News> ChargeNews()
+        private List<InfoNews> ChargeNews()
         {
-            return News.getAuthorArticles(this.IdAuthor);
+            return InfoNews.getAuthorArticles(this.IdAuthor);
         }
 
         public static Author ChargeAuthor(int id)

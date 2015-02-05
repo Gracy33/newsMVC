@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/Content/css/layout.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body id="top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
+
+    <div class="wrapper col0">
+        <div id="topline">
+            <p>Tel: xxxxx xxxxxxxxxx | Mail: info@domain.com</p>
+            <ul>
+                @if (Session["login"] == null)
+                {                    
+                    <li class="last"><a href="~/Admin/Login/LoginForm">Login</a></li>
+                }
+                else if(News.Models.SessionTools.User.Type == "advanced")
+                {
+                    <li><a href="#">Modifier</a></li>
+                    <li><a href="/Admin/Gestion/Ajouter">Ajouter</a></li>
+                    <li class="last"><a href="~/Admin/Login/LogOut">@Session["login"]</a></li>
+                }
+                else if (News.Models.SessionTools.User.Type == "standard")
+                {
+                    <li><a href="#">Modifier</a></li>
+                    <li class="last"><a href="~/Admin/Login/LogOut">@Session["login"]</a></li>
+                }
+                else
+                {
+                    <li><a href="#">Modifier</a></li>
+                    <li><a href="~/Admin/Gestion/Ajouter">Ajouter</a></li>
+                    <li><a href="#">Supprimer</a></li>
+                    <li class="last"><a href="~/Admin/Login/LogOut">@Session["login"]</a></li>
+                }
+            </ul>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper">
+        <div id="header">
+            <div class="fl_left">
+                <h1><a href="index.html"><strong>N</strong>ews <strong>M</strong>agazine</a></h1>
+            </div>
+            <div class="fl_right"><a href="#"><img src="images/demo/468x60.gif" alt="" /></a></div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper col2">
+        <div id="topbar">
+            <div id="topnav">
+                <ul>
+                    <li class="active"><a href="~/Home/Index">Home</a></li>
+                    <li><a href="#">International</a></li>
+                    <li><a href="#">Politique</a></li>
+                    <li><a href="#">Environment</a></li>
+                    <li class="last">
+                        <a href="#">Sport</a>
+                        <ul>
+                            <li><a href="#">Football</a></li>
+                            <li><a href="#">Basketball</a></li>
+                            <li><a href="#">Hockey</a></li>
+                            <li><a href="#">Divers</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="search">
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Site Search</legend>
+                        <input type="text" value="Search Our Website&hellip;" onfocus="this.value=(this.value=='Search Our Website&hellip;')? '' : this.value ;" />
+                        <input type="submit" name="go" id="go" value="Search" />
+                    </fieldset>
+                </form>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    @RenderBody()
+    @*<div class="fl_left">
+            <h2><a href="#">Environment &raquo;</a></h2>
+            <img src="images/demo/100x100.gif" alt="" />
+            <p><strong><a href="#">Indonectetus facilis leo.</a></strong></p>
+            <p>This is a W3C standards compliant free website template from <a href="http://www.os-templates.com/">OS Templates</a>. For more CSS templates visit <a href="http://www.os-templates.com/">Free Website Templates</a>. Condimentumfelis et amet tellent quisquet a leo lacus nec augue accumsan sagittislaorem dolor sum at urna.</p>
+        </div>
+        <div class="fl_right">
+            <h2><a href="#">Technology &raquo;</a></h2>
+            <img src="images/demo/100x100.gif" alt="" />
+            <p><strong><a href="#">Indonectetus facilis leo.</a></strong></p>
+            <p>This template is distributed using a <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>, which allows you to use and modify the template for both personal and commercial use when you keep the provided credit links in the footer.</p>
+        </div>
+        <br class="clear" />
+        <div class="fl_left">
+            <h2><a href="#">Entertainment &raquo;</a></h2>
+            <img src="images/demo/100x100.gif" alt="" />
+            <p><strong><a href="#">Indonectetus facilis leo.</a></strong></p>
+            <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa. Condimentumfelis et amet tellent quisquet a leo lacus nec augue accumsan sagittislaorem dolor sum at urna.</p>
+        </div>
+        <div class="fl_right">
+            <h2><a href="#">Politics &raquo;</a></h2>
+            <img src="images/demo/100x100.gif" alt="" />
+            <p><strong><a href="#">Indonectetus facilis leo.</a></strong></p>
+            <p>Morbitincidunt maurisque eros molest nunc anteget sed vel lacus mus semper. Anterdumnullam interdum eros dui urna consequam ac nisl nullam ligula vestassa. Condimentumfelis et amet tellent quisquet a leo lacus nec augue accumsan sagittislaorem dolor sum at urna.</p>
+        </div>*@
+    <br class="clear" />
+
+    <!-- ####################################################################################################### -->
+    <div class="wrapper">
+        <div id="footer">
+            <div class="footbox">
+                <h2>Lacus interdum</h2>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li><a href="#">Praesent et eros</a></li>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li class="last"><a href="#">Praesent et eros</a></li>
+                </ul>
+            </div>
+            <div class="footbox">
+                <h2>Lacus interdum</h2>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li><a href="#">Praesent et eros</a></li>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li class="last"><a href="#">Praesent et eros</a></li>
+                </ul>
+            </div>
+            <div class="footbox">
+                <h2>Lacus interdum</h2>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li><a href="#">Praesent et eros</a></li>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li class="last"><a href="#">Praesent et eros</a></li>
+                </ul>
+            </div>
+            <div class="footbox">
+                <h2>Lacus interdum</h2>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li><a href="#">Praesent et eros</a></li>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li class="last"><a href="#">Praesent et eros</a></li>
+                </ul>
+            </div>
+            <div class="footbox last">
+                <h2>Lacus interdum</h2>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li><a href="#">Praesent et eros</a></li>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Suspendisse in neque</a></li>
+                    <li class="last"><a href="#">Praesent et eros</a></li>
+                </ul>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper">
+        <div id="socialise">
+            <ul>
+                <li><a href="#"><img src="layout/images/facebook.gif" alt="" /><span>Facebook</span></a></li>
+                <li><a href="#"><img src="layout/images/rss.gif" alt="" /><span>FeedBurner</span></a></li>
+                <li class="last"><a href="#"><img src="layout/images/twitter.gif" alt="" /><span>Twitter</span></a></li>
+            </ul>
+            <div id="newsletter">
+                <h2>NewsLetter Sign Up !</h2>
+                <p>Please enter your Email and Name to join.</p>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Digital Newsletter</legend>
+                        <div class="fl_left">
+                            <input type="text" value="Enter name here&hellip;" onfocus="this.value=(this.value=='Enter name here&hellip;')? '' : this.value ;" />
+                            <input type="text" value="Enter email address&hellip;" onfocus="this.value=(this.value=='Enter email address&hellip;')? '' : this.value ;" />
+                        </div>
+                        <div class="fl_right">
+                            <input type="submit" name="newsletter_go" id="newsletter_go" value="&raquo;" />
+                        </div>
+                    </fieldset>
+                </form>
+                <p>To unsubsribe please <a href="#">click here &raquo;</a>.</p>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+    <!-- ####################################################################################################### -->
+    <div class="wrapper col8">
+        <div id="copyright">
+            <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+            <br class="clear" />
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

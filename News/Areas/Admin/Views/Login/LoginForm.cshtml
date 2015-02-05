@@ -1,0 +1,14 @@
+﻿@model News.DAL.Utilisateur
+
+@{
+    ViewBag.Title = "LoginForm";
+}
+
+<form method="post" action="~/Admin/Login/LoginForm">
+    Login <input type="text" name="txtLogin" />
+    <br />
+    Password <input type="password" name="txtPassword" />
+    <br />
+    <button>Go </button>
+    <span style="color:red">@ViewBag.ErrorLogin</span>
+</form>

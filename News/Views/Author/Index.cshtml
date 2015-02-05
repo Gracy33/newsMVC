@@ -1,0 +1,13 @@
+﻿@model News.DAL.Author
+
+@{
+    ViewBag.Title = "List News by Author";
+}
+
+<div class="infos">
+    @foreach (var item in Model.AutNews)
+    {
+       <img id="imagenews" src="~/Content/images/@item.NewsImage" alt="" />
+       <p><strong><a href="~/Home/Details/@item.IdNews/@Model.IdAuthor">@item.NewsTitle</a></strong></p> 
+    }
+</div>

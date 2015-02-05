@@ -1,0 +1,12 @@
+﻿@model News.Models.Wrapper
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Anews.NewsTitle</h2>
+<p>@Model.Anews.NewsDate.ToShortDateString() - @Model.Anews.NewsDate.ToShortTimeString()</p>
+<p><a href="~/Author/Index/@Model.Auteur.IdAuthor">@Model.Auteur.AuthorFirstName @Model.Auteur.AuthorName</a></p>
+<br />
+<img id="imagedetail" src="~/Content/images/@Model.Anews.NewsImage" alt="" />
+<p>@Model.Anews.NewsText</p>
