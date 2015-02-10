@@ -4,11 +4,15 @@
     ViewBag.Title = "LoginForm";
 }
 
-<form method="post" action="~/Admin/Login/LoginForm">
-    Login <input type="text" name="txtLogin" />
-    <br />
-    Password <input type="password" name="txtPassword" />
-    <br />
-    <button>Go </button>
-    <span style="color:red">@ViewBag.ErrorLogin</span>
-</form>
+<div id="login">
+    <h2> Veuillez vous connecter</h2>
+    <form method="post" action="~/Admin/Login/LoginForm">
+        Login <input type="text" name="txtLogin" />
+        <br />
+        Password <input type="password" name="txtPassword" />
+        <br />
+        <button> Connexion </button>
+        <span style="color:red">@ViewBag.ErrorLogin</span>
+    </form>
+</div>
+

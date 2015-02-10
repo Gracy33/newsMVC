@@ -40,7 +40,7 @@ namespace News.Areas.Admin.Controllers
             return RedirectToRoute(new { area = "", controller = "Home", action = "Index" });
         }
 
-        public ActionResult supprimernews(int id)
+        public ActionResult SupprimerNews(int id)
         {
             InfoNews info = InfoNews.ChargeInfo(id);
             info.deleteNews(id);

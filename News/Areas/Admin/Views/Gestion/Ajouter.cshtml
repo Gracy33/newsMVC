@@ -4,20 +4,18 @@
     ViewBag.Title = "Ajouter";
 }
 
-<h2>Ajouter un article</h2>
+<div class="add-article">
+    <h2>Ajouter un article</h2>
 
-<form action="~/Admin/Gestion/AjouterNews" method="post">
-    <input type="hidden" name="IdNews">
-    <textarea rows="1" cols="50" name="newsTitle" placeholder="Title"></textarea><br />
-    <textarea rows="5" cols="50" name="newsResume" placeholder="Resume"></textarea><br />
-    <textarea rows="15" cols="50" name="newsText" placeholder="News"></textarea><br />
-    <input type="number" placeholder="Author ID" min="0" name="idAuthor"><br />
-    <input type="file" name="newsImage" size="40"><br />
-    @*<input type="text" placeholder="Image" name="newsImage" /><br />*@
-    <input type="submit" value="Create" class="btn btn-default" />
-</form>           
+    <form action="~/Admin/Gestion/AjouterNews" method="post">
+        <input type="hidden" name="IdNews">
+        <textarea rows="1" cols="70" name="newsTitle" placeholder="Title"></textarea>
+        <br /><textarea rows="5" cols="70" name="newsResume" placeholder="Resume"></textarea>
+        <br /><textarea rows="15" cols="70" name="newsText" placeholder="News"></textarea>
+        <br /><input type="number" placeholder="Author ID" min="0" name="idAuthor"><br />
+        <br /><input type="file" name="newsImage" size="50"><br />
+        <br /><input type="submit" value="Create" class="btn btn-default" />
+    </form>
+</div> 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 

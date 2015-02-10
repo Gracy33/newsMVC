@@ -52,12 +52,14 @@ namespace News.DAL
         #endregion
 
         private static Author Associe(Dictionary<string, object> item){
-             Author aut = new Author()
+           
+            Author aut = new Author()
             {
                 IdAuthor = int.Parse(item["idAuthor"].ToString()),
                 AuthorName = item["authorName"].ToString(),
                 AuthorFirstName = item["authorFirstName"].ToString(),
                 AuthorPicture = item["authorPicture"].ToString()
+
             };
             return aut;
         }

@@ -21,7 +21,7 @@ namespace News.Controllers
         public ActionResult Infos()
         {
             List<InfoNews> infos = InfoNews.ChargeAll();
-            return View("Index");
+            return View("Index", infos);
         }
 
         [HttpGet]
