@@ -1,13 +1,37 @@
 ﻿@model News.DAL.InfoNews
 @*<h2><a href="#">@Model.NewsTitle</a></h2>*@
-<div id="left">
-    <img id="imagenews" src="~/Content/images/@Model.NewsImage" alt="" />
-</div>
-<div id="right">
-    <p class="titre"><strong><a href="~/Home/Details/@Model.IdNews/@Model.IdAuthor">@Model.NewsTitle</a></strong></p>
-    <p style="color:black;">@Model.NewsResume</p>
-    <br />
-</div>
-<div class="clear"></div>
+<div class="newsblock">
+    <div id="left">
+        <img id="imagenews" src="~/Content/images/@Model.NewsImage" alt="" />
+    </div>
+    <div id="right">
+        <p class="titre"><strong><a href="~/Home/Details/@Model.IdNews/@Model.IdAuthor">@Model.NewsTitle</a></strong></p>
+        <p style="color:black;">@Model.NewsResume</p>
+        <br />
+        @if (Session["login"] != null)
+        {
+
+            if (News.Models.SessionTools.User.Type == "advanced")
+            {
+                <a href="~/Admin/Gestion/ModifierNews/@Model.IdNews">Modifier</a><br />
+            }
+            else if (News.Models.SessionTools.User.Type == "standard")
+            {
+                <a href="~/Admin/Gestion/ModifierNews/@Model.IdNews">Modifier</a><br />
+            }
+            else
+            {
+                <a href="~/Admin/Gestion/ModifierNews/@Model.IdNews">Modifier </a><strong>-</strong>
+                <a href="~/Admin/Gestion/SupprimerNews/@Model.IdNews">Supprimer</a><br />
+            }
+        }
+    </div>
+    @*@if (Session["login"] != null)
+        {
+            <a href="~/Admin/Gestion/ModifierNews/@Model.IdNews">Modifier</a><br />
+        }*@
 
 
+    <div class="clear"></div>
+
+</div>

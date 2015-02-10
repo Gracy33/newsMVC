@@ -18,6 +18,12 @@ namespace News.Controllers
             return View(infos);
         }
 
+        public ActionResult Infos()
+        {
+            List<InfoNews> infos = InfoNews.ChargeAll();
+            return View("Index");
+        }
+
         [HttpGet]
         public ActionResult Details(int idNews, int idAuthor)
         {

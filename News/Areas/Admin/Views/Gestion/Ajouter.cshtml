@@ -6,84 +6,18 @@
 
 <h2>Ajouter un article</h2>
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>InfoNews</h4>
-        <hr />
-        @Html.ValidationSummary(true)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdNews, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdNews)
-                @Html.ValidationMessageFor(model => model.IdNews)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewsTitle, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsTitle)
-                @Html.ValidationMessageFor(model => model.NewsTitle)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewsResume, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsResume)
-                @Html.ValidationMessageFor(model => model.NewsResume)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewsText, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsText)
-                @Html.ValidationMessageFor(model => model.NewsText)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.IdAuthor, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdAuthor)
-                @Html.ValidationMessageFor(model => model.IdAuthor)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewsDate, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsDate)
-                @Html.ValidationMessageFor(model => model.NewsDate)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NewsImage, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NewsImage)
-                @Html.ValidationMessageFor(model => model.NewsImage)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
+<form action="~/Admin/Gestion/AjouterNews" method="post">
+    <input type="hidden" name="IdNews">
+    <textarea rows="1" cols="50" name="newsTitle" placeholder="Title"></textarea><br />
+    <textarea rows="5" cols="50" name="newsResume" placeholder="Resume"></textarea><br />
+    <textarea rows="15" cols="50" name="newsText" placeholder="News"></textarea><br />
+    <input type="number" placeholder="Author ID" min="0" name="idAuthor"><br />
+    <input type="file" name="newsImage" size="40"><br />
+    @*<input type="text" placeholder="Image" name="newsImage" /><br />*@
+    <input type="submit" value="Create" class="btn btn-default" />
+</form>           
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

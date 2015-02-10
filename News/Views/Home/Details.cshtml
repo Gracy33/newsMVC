@@ -4,9 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>@Model.Anews.NewsTitle</h2>
-<p>@Model.Anews.NewsDate.ToShortDateString() - @Model.Anews.NewsDate.ToShortTimeString()</p>
-<p><a href="~/Author/Index/@Model.Auteur.IdAuthor">@Model.Auteur.AuthorFirstName @Model.Auteur.AuthorName</a></p>
-<br />
-<img id="imagedetail" src="~/Content/images/@Model.Anews.NewsImage" alt="" />
-<p>@Model.Anews.NewsText</p>
+<div id="main-content">
+    <h2>@Model.Anews.NewsTitle</h2>
+    <p>
+        Mis en ligne le @Model.Anews.NewsDate.ToShortDateString() à @Model.Anews.NewsDate.ToShortTimeString() •
+        Mis à jour le @Model.Anews.NewsUpdatedDate.ToShortDateString() à @Model.Anews.NewsUpdatedDate.ToShortTimeString()
+    </p>
+    <p>Par<a href="~/Author/Index/@Model.Auteur.IdAuthor"> @Model.Auteur.AuthorFirstName @Model.Auteur.AuthorName</a></p>
+    <br />
+    <img id="imagedetail" src="~/Content/images/@Model.Anews.NewsImage" alt="" />
+    <p>@Model.Anews.NewsText</p>
+</div>
+

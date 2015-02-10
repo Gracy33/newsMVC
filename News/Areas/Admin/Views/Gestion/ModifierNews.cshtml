@@ -1,0 +1,15 @@
+﻿@model News.DAL.InfoNews
+
+<h2>Modifier L'article</h2>
+
+<form action="~/Admin/Gestion/ModifierNews" method="post">
+    <input type="hidden" name="IdNews" value="@Model.IdNews">
+    <textarea rows="1" cols="50" name="NewsTitle" placeholder="Title" >@Model.NewsTitle</textarea><br />
+    <textarea rows="5" cols="50" name="NewsResume" placeholder="Resume">@Model.NewsResume</textarea><br />
+    <textarea rows="15" cols="50" name="NewsText" placeholder="News">@Model.NewsText</textarea><br />
+    <input type="number" name="IdAuthor" placeholder="author id" min="0" value="@Model.IdAuthor"><br />
+    <input type="hidden" name="NewsUpdatedDate" value="@Model.NewsUpdatedDate" />
+    <input type="file" name="NewsImage" size="40" value="@Model.NewsImage"><br />
+    @*<input type="text" placeholder="Image" name="newsImage" /><br />*@
+    <input type="submit" value="Enregistrer" class="btn btn-default" />
+</form>     

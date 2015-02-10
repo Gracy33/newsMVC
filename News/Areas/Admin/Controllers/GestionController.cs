@@ -11,7 +11,8 @@ namespace News.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/Gestion/
-        public ActionResult Ajouter(){
+        public ActionResult Ajouter()
+        {
             return View();
         }
 
@@ -19,9 +20,31 @@ namespace News.Areas.Admin.Controllers
         public ActionResult AjouterNews(string newsTitle, string newsResume, string newsText, int idAuthor, string newsImage)
         {
             InfoNews nouvelle = new InfoNews();
-            nouvelle.insertNews(newsTitle, newsResume, newsText,  idAuthor,  newsImage);
+            nouvelle.insertNews(newsTitle, newsResume, newsText, idAuthor, newsImage);
 
-            return RedirectToRoute(new { area = "", controller = "Home", action = "Index" });   
+            return RedirectToRoute(new { area = "", controller = "Home", action = "Index" });
         }
-	}
+
+        [HttpGet]
+        public ActionResult ModifierNews(int id)
+        {
+            InfoNews info = InfoNews.ChargeInfo(id);
+            return View(info);            
+        }
+
+
+        [HttpPost]
+        public ActionResult ModifierNews(InfoNews info)
+        {
+            info.updateNews();
+            return RedirectToRoute(new { area = "", controller = "Home", action = "Index" });
+        }
+
+        public ActionResult supprimernews(int id)
+        {
+            InfoNews info = InfoNews.ChargeInfo(id);
+            info.deleteNews(id);
+            return RedirectToRoute(new { area = "", controller = "home", action = "index" });
+        }
+    }
 }
